@@ -9,6 +9,10 @@ class App extends Component {
   state = {
     pokemon: []
   };
+  
+  getPokemon = (idx) => {
+    return this.state.pokemon[idx];
+  }
 
   async componentDidMount() {
     const pokemon = await getAllPokemon();
@@ -36,6 +40,7 @@ class App extends Component {
         <Route path='/pokemon/:idx' render={(props) => 
           <PokemonPage 
             {...props}
+            getPokemon={this.getPokemon}
           />
         }>
 
